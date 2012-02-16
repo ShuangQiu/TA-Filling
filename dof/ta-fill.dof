@@ -4,11 +4,11 @@ read_netlist ../data/alu.v
 run_build_model alu
 run_drc
 add_faults -all
-# read_faults /home/ogawa/research/TA-Filling/dof/current.fit -add
+# read_faults current.fit -add
 
 # set_atpg -full_seq_time 1
 #run_atpg full_sequential_only
-set_patterns -external /home/ogawa/research/TA-Filling/dof/tmax_patterns.v -sensitive
+set_patterns -external tmax_patterns.v -sensitive
 
 set_atpg -norandom_fill
 set_atpg -patterns 2
