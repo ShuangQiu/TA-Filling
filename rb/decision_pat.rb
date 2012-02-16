@@ -3,7 +3,7 @@ def patternRead(f)
   p pat
 end
 
-f = open("data/pattern.v","r")
+f = open("../data/pattern.v","r")
 
 while line=f.gets
   patternRead(f) if line[0..6]=="pattern"

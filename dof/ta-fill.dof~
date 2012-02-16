@@ -1,0 +1,15 @@
+read_netlist -lib /home/ogawa/cad/class.v
+read_netlist ../data/alu.v
+
+run_build_model alu
+run_drc
+add_faults -all
+
+# set_atpg -full_seq_time 1
+#run_atpg full_sequential_only
+set_atpg -norandom_fill
+set_atpg -patterns 1 
+run_atpg -ndetects 1
+
+write_patterns tmax_patterns.v -format verilog_single_file -replace
+report_summaries cpu_usage faults patterns > ATPG.rep
