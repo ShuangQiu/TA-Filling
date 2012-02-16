@@ -1,25 +1,25 @@
 // Verilog pattern output written by  TetraMAX (TM)  D-2010.03-SP5-i101014_173458 
-// Date: Thu Feb 16 20:06:41 2012
+// Date: Thu Feb 16 20:08:53 2012
 // Module tested: alu
 
 //     Uncollapsed Stuck Fault Summary Report
 // -----------------------------------------------
 // fault class                     code   #faults
 // ------------------------------  ----  ---------
-// Detected                         DT         16
-// Possibly detected                PT          0
+// Detected                         DT         32
+// Possibly detected                PT          2
 // Undetectable                     UD          0
 // ATPG untestable                  AU          0
-// Not detected                     ND         60
+// Not detected                     ND         42
 // -----------------------------------------------
 // total faults                                76
-// test coverage                            21.05%
+// test coverage                            43.42%
 // -----------------------------------------------
 // 
 //            Pattern Summary Report
 // -----------------------------------------------
-// #internal patterns                           2
-//     #basic_scan patterns                     2
+// #internal patterns                           5
+//     #basic_scan patterns                     5
 // #external patterns (/home/ogawa/research/TA-Filling/dof/tmax_patterns.v)      2
 //     #basic_scan patterns                     2
 // -----------------------------------------------
@@ -206,6 +206,27 @@ XPCT = 2'bX0;
 MASK = 2'b01;
 #0 ->capture;
 #200; // 400
+
+pattern = 2; // 400
+ALLPIS = 5'b1X1X1;
+XPCT = 2'b1X;
+MASK = 2'b10;
+#0 ->capture;
+#200; // 600
+
+pattern = 3; // 600
+ALLPIS = 5'b0X1X1;
+XPCT = 2'b0X;
+MASK = 2'b10;
+#0 ->capture;
+#200; // 800
+
+pattern = 4; // 800
+ALLPIS = 5'bX0X11;
+XPCT = 2'bX0;
+MASK = 2'b01;
+#0 ->capture;
+#200; // 1000
 
       $display("// %t : Simulation of %0d patterns completed with %0d errors\n", $time, pattern+1, nofails);
       if (verbose >=2) $finish(2);
