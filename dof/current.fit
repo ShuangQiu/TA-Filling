@@ -1,76 +1,76 @@
-sa0   NO   bin[0]   (#detects=0)
-sa1   NP   bin[0]   (#detects=1)
-sa1   NC   sel   (#detects=0)
-sa0   NP   U11/A   (#detects=1)
-sa1   NC   U16/B   (#detects=0)
-sa0   NO   U16/B   (#detects=0)
-sa1   NC   U16/A   (#detects=0)
-sa0   NO   U16/A   (#detects=0)
-sa0   NC   U14/B   (#detects=0)
-sa0   NO   U14/A   (#detects=0)
-sa1   NO   U14/Z   (#detects=0)
-sa1   --   U13/B   .....
-sa0   NC   U14/Z   (#detects=0)
-sa1   --   U14/A   .....
-sa1   --   U14/B   .....
-sa0   --   U13/B   .....
-sa1   NC   U16/Z   (#detects=0)
-sa1   --   U13/A   .....
-sa0   NO   U16/Z   (#detects=0)
-sa0   --   U13/A   .....
-sa1   NO   U13/S   (#detects=0)
-sa0   NO   U13/S   (#detects=0)
-sa1   NC   U12/C   (#detects=0)
-sa1   NP   U12/D   (#detects=1)
-sa0   NC   U12/A   (#detects=0)
-sa1   NC   U12/B   (#detects=0)
-sa1   --   U12/A   .....
-sa0   NP   U12/B   (#detects=1)
-sa1   NP   U12/Z   (#detects=1)
-sa0   --   U12/D   .....
-sa0   --   U12/C   .....
-sa1   --   U11/C   .....
-sa1   NP   zout[1]   (#detects=1)
-sa1   --   U11/Z   .....
-sa0   --   U11/C   .....
-sa0   --   U12/Z   .....
-sa0   NP   zout[1]   (#detects=1)
-sa0   --   U11/Z   .....
-sa0   NO   U13/Z   (#detects=0)
-sa0   --   U11/B   .....
-sa1   NC   U11/A   (#detects=0)
-sa1   --   U11/B   .....
-sa1   --   U13/Z   .....
-sa0   NC   U15/Z   (#detects=0)
-sa1   --   U15/A   .....
-sa1   NO   U15/Z   (#detects=0)
-sa0   --   U15/A   .....
-sa0   NC   zout[0]   (#detects=0)
-sa0   --   U17/Z   .....
-sa1   NO   U19/B   (#detects=0)
-sa0   NO   U19/B   (#detects=0)
-sa1   NO   U19/A   (#detects=0)
-sa0   NO   U19/A   (#detects=0)
-sa1   NC   U17/B   (#detects=0)
-sa1   NO   U19/Z   (#detects=0)
-sa1   --   U17/A   .....
-sa0   NC   U19/Z   (#detects=0)
-sa0   --   U17/A   .....
-sa1   NC   U17/S   (#detects=0)
-sa1   NC   U18/Z   (#detects=0)
-sa0   --   U18/A   .....
-sa0   --   U18/B   .....
-sa0   NO   ain[0]   (#detects=0)
-sa1   NP   ain[0]   (#detects=1)
-sa0   NP   ain[1]   (#detects=1)
-sa1   NC   ain[1]   (#detects=0)
-sa0   DS   bin[1]   (#detects=2)
-sa1   DS   bin[1]   (#detects=2)
-sa0   DS   sel   (#detects=2)
-sa0   DS   U17/S   (#detects=2)
-sa1   DS   zout[0]   (#detects=2)
-sa1   --   U17/Z   .....
-sa0   DS   U17/B   (#detects=2)
-sa1   DS   U18/A   (#detects=2)
-sa0   DS   U18/Z   (#detects=2)
-sa1   DS   U18/B   (#detects=2)
+sa0   DS   ain[1]
+sa1   DS   ain[1]
+sa0   DS   ain[0]
+sa1   DS   ain[0]
+sa0   DS   bin[1]
+sa1   DS   bin[1]
+sa0   DS   bin[0]
+sa1   DS   bin[0]
+sa0   DS   sel
+sa1   DS   sel
+sa0   DS   U11/A
+sa1   DS   U11/A
+sa1   --   U11/B
+sa1   --   U13/Z
+sa0   DS   U13/Z
+sa0   --   U11/B
+sa0   DS   zout[1]
+sa0   --   U11/Z
+sa1   DS   zout[1]
+sa1   --   U11/Z
+sa0   --   U11/C
+sa0   --   U12/Z
+sa1   DS   U12/Z
+sa0   --   U12/D
+sa0   --   U12/C
+sa1   --   U11/C
+sa0   DS   U12/B
+sa1   DS   U12/B
+sa1   --   U12/A
+sa0   DS   U12/A
+sa1   DS   U12/D
+sa1   DS   U12/C
+sa0   DS   U13/S
+sa1   DS   U13/S
+sa0   DS   U16/Z
+sa0   --   U13/A
+sa1   DS   U16/Z
+sa1   --   U13/A
+sa0   DS   U14/Z
+sa1   --   U14/A
+sa1   --   U14/B
+sa0   --   U13/B
+sa1   DS   U14/Z
+sa1   --   U13/B
+sa0   DS   U14/A
+sa0   DS   U14/B
+sa0   DS   U16/A
+sa1   DS   U16/A
+sa0   DS   U16/B
+sa1   DS   U16/B
+sa0   DS   U15/Z
+sa1   --   U15/A
+sa1   DS   U15/Z
+sa0   --   U15/A
+sa0   DS   zout[0]
+sa0   --   U17/Z
+sa1   DS   zout[0]
+sa1   --   U17/Z
+sa0   DS   U17/S
+sa1   DS   U17/S
+sa0   DS   U19/Z
+sa0   --   U17/A
+sa1   DS   U19/Z
+sa1   --   U17/A
+sa0   DS   U17/B
+sa1   DS   U17/B
+sa0   DS   U19/A
+sa1   DS   U19/A
+sa0   DS   U19/B
+sa1   DS   U19/B
+sa0   DS   U18/Z
+sa1   DS   U18/Z
+sa0   --   U18/A
+sa0   --   U18/B
+sa1   DS   U18/A
+sa1   DS   U18/B

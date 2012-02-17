@@ -1,27 +1,25 @@
 // Verilog pattern output written by  TetraMAX (TM)  D-2010.03-SP5-i101014_173458 
-// Date: Fri Feb 17 14:32:11 2012
+// Date: Fri Feb 17 18:31:38 2012
 // Module tested: alu
 
 //     Uncollapsed Stuck Fault Summary Report
 // -----------------------------------------------
 // fault class                     code   #faults
 // ------------------------------  ----  ---------
-// Detected                         DT         16
+// Detected                         DT         76
 // Possibly detected                PT          0
 // Undetectable                     UD          0
 // ATPG untestable                  AU          0
-// Not detected                     ND         60
+// Not detected                     ND          0
 // -----------------------------------------------
 // total faults                                76
-// test coverage                            21.05%
+// test coverage                           100.00%
 // -----------------------------------------------
 // 
 //            Pattern Summary Report
 // -----------------------------------------------
-// #internal patterns                           2
-//     #basic_scan patterns                     2
-// #external patterns (tmax_patterns.v)         2
-//     #basic_scan patterns                     2
+// #internal patterns                          11
+//     #basic_scan patterns                    11
 // -----------------------------------------------
 // 
 // There are no rule fails
@@ -194,18 +192,81 @@ module AAA_tmax_testbench_1_16 ;
 
       if (verbose >= 1) $display("// %t : Begin patterns, first pattern = 0", $time);
 pattern = 0; // 0
-ALLPIS = 5'bX1X11;
-XPCT = 2'bX1;
-MASK = 2'b01;
+ALLPIS = 5'b11101;
+XPCT = 2'b10;
+MASK = 2'b11;
 #0 ->capture;
 #200; // 200
 
 pattern = 1; // 200
-ALLPIS = 5'bX1X01;
-XPCT = 2'bX0;
-MASK = 2'b01;
+ALLPIS = 5'b00111;
+XPCT = 2'b00;
+MASK = 2'b11;
 #0 ->capture;
 #200; // 400
+
+pattern = 2; // 400
+ALLPIS = 5'b11111;
+XPCT = 2'b11;
+MASK = 2'b11;
+#0 ->capture;
+#200; // 600
+
+pattern = 3; // 600
+ALLPIS = 5'b11011;
+XPCT = 2'b01;
+MASK = 2'b11;
+#0 ->capture;
+#200; // 800
+
+pattern = 4; // 800
+ALLPIS = 5'b11010;
+XPCT = 2'b00;
+MASK = 2'b11;
+#0 ->capture;
+#200; // 1000
+
+pattern = 5; // 1000
+ALLPIS = 5'b00000;
+XPCT = 2'b00;
+MASK = 2'b11;
+#0 ->capture;
+#200; // 1200
+
+pattern = 6; // 1200
+ALLPIS = 5'b01110;
+XPCT = 2'b00;
+MASK = 2'b11;
+#0 ->capture;
+#200; // 1400
+
+pattern = 7; // 1400
+ALLPIS = 5'b11100;
+XPCT = 2'b01;
+MASK = 2'b11;
+#0 ->capture;
+#200; // 1600
+
+pattern = 8; // 1600
+ALLPIS = 5'b00100;
+XPCT = 2'b10;
+MASK = 2'b11;
+#0 ->capture;
+#200; // 1800
+
+pattern = 9; // 1800
+ALLPIS = 5'b01010;
+XPCT = 2'b10;
+MASK = 2'b11;
+#0 ->capture;
+#200; // 2000
+
+pattern = 10; // 2000
+ALLPIS = 5'b11110;
+XPCT = 2'b10;
+MASK = 2'b11;
+#0 ->capture;
+#200; // 2200
 
       $display("// %t : Simulation of %0d patterns completed with %0d errors\n", $time, pattern+1, nofails);
       if (verbose >=2) $finish(2);

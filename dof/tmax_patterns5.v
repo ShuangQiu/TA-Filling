@@ -1,27 +1,27 @@
 // Verilog pattern output written by  TetraMAX (TM)  D-2010.03-SP5-i101014_173458 
-// Date: Thu Feb 16 20:08:53 2012
+// Date: Fri Feb 17 15:43:18 2012
 // Module tested: alu
 
 //     Uncollapsed Stuck Fault Summary Report
 // -----------------------------------------------
 // fault class                     code   #faults
 // ------------------------------  ----  ---------
-// Detected                         DT         32
-// Possibly detected                PT          2
+// Detected                         DT         36
+// Possibly detected                PT          0
 // Undetectable                     UD          0
 // ATPG untestable                  AU          0
-// Not detected                     ND         42
+// Not detected                     ND         40
 // -----------------------------------------------
 // total faults                                76
-// test coverage                            43.42%
+// test coverage                            47.37%
 // -----------------------------------------------
 // 
 //            Pattern Summary Report
 // -----------------------------------------------
 // #internal patterns                           5
 //     #basic_scan patterns                     5
-// #external patterns (/home/ogawa/research/TA-Filling/dof/tmax_patterns.v)      2
-//     #basic_scan patterns                     2
+// #external patterns (tmax_patterns4.v)        4
+//     #basic_scan patterns                     4
 // -----------------------------------------------
 // 
 // There are no rule fails
@@ -194,37 +194,37 @@ module AAA_tmax_testbench_1_16 ;
 
       if (verbose >= 1) $display("// %t : Begin patterns, first pattern = 0", $time);
 pattern = 0; // 0
-ALLPIS = 5'bX1X11;
-XPCT = 2'bX1;
-MASK = 2'b01;
+ALLPIS = 5'b11101;
+XPCT = 2'b10;
+MASK = 2'b11;
 #0 ->capture;
 #200; // 200
 
 pattern = 1; // 200
-ALLPIS = 5'bX1X01;
-XPCT = 2'bX0;
-MASK = 2'b01;
+ALLPIS = 5'b01101;
+XPCT = 2'b00;
+MASK = 2'b11;
 #0 ->capture;
 #200; // 400
 
 pattern = 2; // 400
-ALLPIS = 5'b1X1X1;
-XPCT = 2'b1X;
-MASK = 2'b10;
+ALLPIS = 5'b01111;
+XPCT = 2'b01;
+MASK = 2'b11;
 #0 ->capture;
 #200; // 600
 
 pattern = 3; // 600
-ALLPIS = 5'b0X1X1;
-XPCT = 2'b0X;
-MASK = 2'b10;
+ALLPIS = 5'b00111;
+XPCT = 2'b00;
+MASK = 2'b11;
 #0 ->capture;
 #200; // 800
 
 pattern = 4; // 800
-ALLPIS = 5'bX0X11;
-XPCT = 2'bX0;
-MASK = 2'b01;
+ALLPIS = 5'b10011;
+XPCT = 2'b0X;
+MASK = 2'b10;
 #0 ->capture;
 #200; // 1000
 
