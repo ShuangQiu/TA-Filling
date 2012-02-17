@@ -1,5 +1,5 @@
 // Verilog pattern output written by  TetraMAX (TM)  D-2010.03-SP5-i101014_173458 
-// Date: Thu Feb 16 20:06:41 2012
+// Date: Fri Feb 17 14:32:11 2012
 // Module tested: alu
 
 //     Uncollapsed Stuck Fault Summary Report
@@ -20,7 +20,7 @@
 // -----------------------------------------------
 // #internal patterns                           2
 //     #basic_scan patterns                     2
-// #external patterns (/home/ogawa/research/TA-Filling/dof/tmax_patterns.v)      2
+// #external patterns (tmax_patterns.v)         2
 //     #basic_scan patterns                     2
 // -----------------------------------------------
 // 
