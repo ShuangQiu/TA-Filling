@@ -1,0 +1,32 @@
+set dname alu
+set snum 1
+set sname ${dname}
+
+read_netlist -lib /home/ogawa/cad/class.v
+read_netlist ../data/${sname}.v
+
+# set_massages -log ${sname}.atpg.log -replace
+
+run_build_model ${sname}
+run_drc
+add_faults -all
+#read_faults fault${snum}.fit -add
+
+#set_atpg -full_seq_time 1
+#run_atpg full_sequential_only
+
+set_patterns -external pattern${snum}.v -sensitive
+
+set_atpg -norandom_fill
+set_atpg -patterns ${snum}
+run_atpg -ndetects 1
+
+set_patterns -internal
+set_atpg -patterns ${snum+1}
+run_atpg -ndetects 1
+#run_atpg
+
+write_faults fault${snum+1}.fit -all -replace
+
+write_patterns pattern${snum+1}.v -format verilog_single_file -replace
+report_summaries cpu_usage faults patterns > ${sname}_${snum}_ATPG.rep

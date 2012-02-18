@@ -271,7 +271,7 @@ MASK = 2'b11;
 #200; // 2200
 
 pattern = 11; // 2200
-ALLPIS = 5'bX0X10;
+ALLPIS = 5'b10110;
 XPCT = 2'bX1;
 MASK = 2'b01;
 #0 ->capture;
