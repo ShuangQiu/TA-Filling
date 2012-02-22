@@ -13,7 +13,7 @@ def patternRead(f)
   patternDiff(pat)
 end
 
-f = open("../dof/mt_patterns.v","r")
+f = open("../data/alu/alu_1_pattern.v","r")
 
 while line=f.gets
   patternRead(f) if line[0..6]=="pattern"

@@ -1,32 +1,41 @@
 set dname alu
-set snum 1
-set sname ${dname}
+set now 0
+set next 0
+set name_now ${dname}_${now}
+set name_next ${dname}_${next}
 
-read_netlist -lib /home/ogawa/cad/class.v
-read_netlist ../data/${sname}.v
+read_netlist -lib ../data/class.v
+read_netlist ../data/${dname}.v
 
-# set_massages -log ${sname}.atpg.log -replace
+# set_massages -log ../data/${dname}/${name_now}.atpg.log -replace
 
-run_build_model ${sname}
+run_build_model ${dname}
 run_drc
 add_faults -all
-#read_faults fault${snum}.fit -add
+#read_faults ../data/${dname}/${name_now}_fault.fit -add
 
 #set_atpg -full_seq_time 1
 #run_atpg full_sequential_only
 
-set_patterns -external pattern${snum}.v -sensitive
+#set_patterns -external ../data/${dname}/${name_now}_pattern_.v -sensitive
 
-set_atpg -norandom_fill
-set_atpg -patterns ${snum}
-run_atpg -ndetects 1
+#set_atpg -norandom_fill
+#set_atpg -fill 1
+#X, 0, 1, adjacent, random
+run_atpg
 
-set_patterns -internal
-set_atpg -patterns ${snum+1}
-run_atpg -ndetects 1
+#set_atpg -patterns ${now}
+#run_atpg -ndetects 1
+
+#set_atpg -full_seq_time 1
+#run_atpg full_sequential_only -ndetects 1
+
+#set_patterns -internal
+#set_atpg -patterns ${next}
+#run_atpg -ndetects 1
 #run_atpg
 
-write_faults fault${snum+1}.fit -all -replace
+write_faults ../data/${dname}/${name_next}_fault.fit -all -replace
 
-write_patterns pattern${snum+1}.v -format verilog_single_file -replace
-report_summaries cpu_usage faults patterns > ${sname}_${snum}_ATPG.rep
+write_patterns ../data/${dname}/${name_next}_pattern.v -format verilog_single_file -replace
+report_summaries cpu_usage faults patterns > ../data/${dname}/${name_now}_ATPG.rep

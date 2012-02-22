@@ -1,33 +1,28 @@
-// Verilog pattern output written by  TetraMAX (TM)  C-2009.06-i090521_202443 
-// Date: Thu Jul 28 13:41:18 2011
-// Module tested: ex2
+// Verilog pattern output written by  TetraMAX (TM)  D-2010.03-SP5-i101014_173458 
+// Date: Wed Feb 22 15:51:42 2012
+// Module tested: alu
 
 //     Uncollapsed Stuck Fault Summary Report
 // -----------------------------------------------
 // fault class                     code   #faults
 // ------------------------------  ----  ---------
-// Detected                         DT         48
+// Detected                         DT         26
 // Possibly detected                PT          0
-// Undetectable                     UD          2
+// Undetectable                     UD          0
 // ATPG untestable                  AU          0
-// Not detected                     ND          0
+// Not detected                     ND         50
 // -----------------------------------------------
-// total faults                                50
-// test coverage                           100.00%
-// fault coverage                           96.00%
-// ATPG effectiveness                      100.00%
+// total faults                                76
+// test coverage                            34.21%
 // -----------------------------------------------
 // 
 //            Pattern Summary Report
 // -----------------------------------------------
-// #internal patterns                           9
-//     #basic_scan patterns                     9
+// #internal patterns                           2
+//     #basic_scan patterns                     2
 // -----------------------------------------------
 // 
-// rule  severity  #fails  description
-// ----  --------  ------  ---------------------------------
-// N5    warning      130  redefined module
-// 
+// There are no rule fails
 // There are no clocks
 // There are no constraint ports
 // There are no equivalent pins
@@ -57,35 +52,27 @@ module AAA_tmax_testbench_1_16 ;
    reg [0:8*(NAMELENGTH-1)] POnames [0:NOUTPUTS-1];
    event IDDQ;
 
-   wire a;
-   wire b;
-   wire c;
-   wire d;
-   wire e;
-   wire f1;
-   wire f2;
+   wire sel;
+   wire [1:0] ain;
+   wire [1:0] bin;
+   wire [1:0] zout;
 
    // map PI[] vector to DUT inputs and bidis
-   assign a = PI[0];
-   assign b = PI[1];
-   assign c = PI[2];
-   assign d = PI[3];
-   assign e = PI[4];
+   assign ain = PI[0:1];
+   assign bin = PI[2:3];
+   assign sel = PI[4];
 
    // map DUT outputs and bidis to PO[] vector
    assign
-      PO[0] = f1 ,
-      PO[1] = f2 ;
+      PO[0] = zout[1] ,
+      PO[1] = zout[0] ;
 
    // instantiate the design into the testbench
-   ex2 dut (
-      .a(a),
-      .b(b),
-      .c(c),
-      .d(d),
-      .e(e),
-      .f1(f1),
-      .f2(f2)   );
+   alu dut (
+      .ain(ain),
+      .bin(bin),
+      .sel(sel),
+      .zout(zout)   );
 
 
    integer errshown;
@@ -194,8 +181,8 @@ module AAA_tmax_testbench_1_16 ;
          //
       `endif
 
-      POnames[0] = "f1";
-      POnames[1] = "f2";
+      POnames[0] = "zout[1]";
+      POnames[1] = "zout[0]";
       nofails = 0; pattern = -1; lastpattern = 0;
       prev_pat = -2; error_banner = -2;
       /*** No test setup procedure ***/
@@ -205,67 +192,18 @@ module AAA_tmax_testbench_1_16 ;
 
       if (verbose >= 1) $display("// %t : Begin patterns, first pattern = 0", $time);
 pattern = 0; // 0
-ALLPIS = 5'b1XX0X;
-XPCT = 2'b0X;
-MASK = 2'b10;
+ALLPIS = 5'b11101;
+XPCT = 2'b10;
+MASK = 2'b11;
 #0 ->capture;
 #200; // 200
 
 pattern = 1; // 200
-ALLPIS = 5'b0XX0X;
-XPCT = 2'b1X;
-MASK = 2'b10;
-#0 ->capture;
-#200; // 400
-
-pattern = 2; // 400
-ALLPIS = 5'b111X0;
+ALLPIS = 5'b00111;
 XPCT = 2'b00;
 MASK = 2'b11;
 #0 ->capture;
-#200; // 600
-
-pattern = 3; // 600
-ALLPIS = 5'b0110X;
-XPCT = 2'b1X;
-MASK = 2'b10;
-#0 ->capture;
-#200; // 800
-
-pattern = 4; // 800
-ALLPIS = 5'b101X0;
-XPCT = 2'b01;
-MASK = 2'b11;
-#0 ->capture;
-#200; // 1000
-
-pattern = 5; // 1000
-ALLPIS = 5'b0X0X0;
-XPCT = 2'bX0;
-MASK = 2'b01;
-#0 ->capture;
-#200; // 1200
-
-pattern = 6; // 1200
-ALLPIS = 5'b0XX1X;
-XPCT = 2'b0X;
-MASK = 2'b10;
-#0 ->capture;
-#200; // 1400
-
-pattern = 7; // 1400
-ALLPIS = 5'b10X0X;
-XPCT = 2'b0X;
-MASK = 2'b10;
-#0 ->capture;
-#200; // 1600
-
-pattern = 8; // 1600
-ALLPIS = 5'b0X1X1;
-XPCT = 2'bX0;
-MASK = 2'b01;
-#0 ->capture;
-#200; // 1800
+#200; // 400
 
       $display("// %t : Simulation of %0d patterns completed with %0d errors\n", $time, pattern+1, nofails);
       if (verbose >=2) $finish(2);

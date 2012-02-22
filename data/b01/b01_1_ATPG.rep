@@ -1,0 +1,31 @@
+            CPU Usage Summary Report
+ -----------------------------------------------
+ Read netlist CPU time                     0.01
+ Model build CPU time                      0.00
+ DRC CPU time                              0.00
+ ATPG CPU time                             1.35
+ Pattern compression CPU time              0.00
+ Fault Sim CPU time                        0.00
+ Good Sim CPU time                         0.00
+ Diagnosis CPU time                        0.00
+ Analyses CPU time                         0.00
+ Total session CPU time                    1.36
+ -----------------------------------------------
+     Uncollapsed Stuck Fault Summary Report
+ -----------------------------------------------
+ fault class                     code   #faults
+ ------------------------------  ----  ---------
+ Detected                         DT        101
+ Possibly detected                PT          8
+ Undetectable                     UD          0
+ ATPG untestable                  AU          0
+ Not detected                     ND        103
+ -----------------------------------------------
+ total faults                               212
+ test coverage                            49.53%
+ -----------------------------------------------
+            Pattern Summary Report
+ -----------------------------------------------
+ #internal patterns                           1
+     #full_sequential patterns                1
+ -----------------------------------------------
